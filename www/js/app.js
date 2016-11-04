@@ -29,17 +29,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
           controller: 'AppCtrl'
     })
 
-
-
-   /* .state('app.login', {
-        url: '/login',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/login.html',
-                controller: 'LoginCtrl'
+        .state('app.main', {
+            url: '/main',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/mainpage.html'
+                }
             }
+        })
+
+      .state('app.user', {
+        url: '/user',
+        controller: 'EditUserCtrl',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/user.html'
+          }
         }
-    })*/
+      })
 
       .state('login', {
         url: '/login',
@@ -51,10 +58,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       .state('createcount', {
         url: '/createcount',
         cache: false,
-          templateUrl: 'templates/createcount.html',
-          controller: 'CreateCountCtrl'
+          templateUrl: 'templates/register.html',
+          controller: 'RegisterCtrl'
       })
-
 
     ;
 

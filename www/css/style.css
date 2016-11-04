@@ -51,10 +51,10 @@ p {
 /* Menu */
 
 .menu .bar.bar-header.expanded {
-    background-image: url('../img/material-graphite.jpg');
-    background-size: 120%;
+    background-size: 150%;
     background-position: 0%;
-    transition: all .5s ease-in-out;
+    height: auto;
+
 }
 
 .menu.menu-left * {
@@ -96,7 +96,39 @@ p {
 .directions.button-bar button {
     line-height: 26px;
 }
+.bar.bar-profile {
+    background-image: url("/../img/fondocrearcuenta.jpg");
+    height: 170px;
+}
 
+.bar .profile {
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.profile .name {
+    color: #FFFFFF;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.profile-picture {
+    border-radius: 50%;
+}
+
+
+.menu .has-header
+{
+    top: 169px;
+}
 .ion-arrow-right-c.top-left:before {
     transform: rotate(-135deg);
 }
@@ -217,19 +249,37 @@ margin-top:10px;
   border-width: 3px;
 }
 
-
 input::-webkit-input-placeholder {
-  color: white !important;
+  color: limegreen!important;
 }
 
 input:-moz-placeholder { /* Firefox 18- */
-  color: white !important;
+  color: limegreen !important;
 }
 
 input::-moz-placeholder {  /* Firefox 19+ */
-  color: white !important;
+  color: limegreen !important;
 }
 
 input:-ms-input-placeholder {
-  color: white !important;
+  color: limegreen !important;
+}
+
+
+.sexy-blue {
+  background-color: #00E9E7;
+  color: white;
+}
+.letra {
+  font-size: 18px;
+  font-family: roboto thin;
+}
+#user-header{
+  background-image: url(/../img/layoutmobile.png);
+}
+
+
+h5{
+  font-size: 25px;
+  font-family: roboto thin;
 }
