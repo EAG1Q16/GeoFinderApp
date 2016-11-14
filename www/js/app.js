@@ -33,21 +33,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/main',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/mainpage.html'
+                    templateUrl: 'templates/mainpage.html',
+                    controller: 'MainCtrl'
                 }
             }
         })
 
       .state('app.user', {
         url: '/user',
-        controller: 'EditUserCtrl',
         views: {
           'menuContent': {
-            templateUrl: 'templates/user.html'
+            templateUrl: 'templates/user.html',
+            controller: 'EditUserCtrl'
           }
         }
       })
-
       .state('login', {
         url: '/login',
         cache: false,

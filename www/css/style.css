@@ -7,7 +7,7 @@
 }
 
 h4 {
-    color: #116262;
+    color: dimgrey;
     font-size: 22px;
     margin-bottom: 16px;
 }
@@ -148,7 +148,7 @@ p {
 #modal {
     background-color: #ef4e3a;
     border-radius: 100%;
-    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.2);
+
     position: fixed;
     height: 50%;
     bottom: 0;
@@ -224,7 +224,6 @@ p {
 
 .code-wrapper.active .code {
     background: #f9f9f9;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     left: 16px;
     height: initial;
     margin-top: 15px;
@@ -267,19 +266,49 @@ input:-ms-input-placeholder {
 
 
 .sexy-blue {
-  background-color: #00E9E7;
+  background-color: limegreen ;
   color: white;
 }
 .letra {
-  font-size: 18px;
-  font-family: roboto thin;
+  font-size: 22px;
+  font-family: roboto;
 }
 #user-header{
-  background-image: url(/../img/layoutmobile.png);
+  background-color: greenyellow;
 }
-
-
+.item.item-inputgrey{
+  border-color: darkgrey;
+  border-width: 3px;
+}
 h5{
   font-size: 25px;
-  font-family: roboto thin;
+  font-family: roboto;
 }
+
+/***********************
+ * Barra búsqueda *
+ ***********************/
+.flexsearch--wrapper {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
+  background: transparent;
+  margin: 0;
+  position: static;
+}
+
+.flexsearch--form {
+  overflow: hidden;
+  position: relative;
+}
+
+.flexsearch--input-wrapper {
+  padding: 0 66px 0 0; /* Right padding for submit button width */
+  overflow: hidden;
+}
+
+.flexsearch--input {
+  width: 100%;
+}
+

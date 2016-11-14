@@ -37,7 +37,7 @@ app.controller('AppCtrl', function ($scope, $state, $ionicModal, $ionicPopover, 
         $scope.popover.remove();
     });
 
-    $scope.EditProfile = function () {
+   /* $scope.EditProfile = function () {
             console.log('Entra en el EditProfile');
             var confirmPopup = $ionicPopup.confirm({
                 title: 'Guardar cambios?'
@@ -53,23 +53,26 @@ app.controller('AppCtrl', function ($scope, $state, $ionicModal, $ionicPopover, 
 
             });
 
-        };
+        };*/
 
 })
-/*
-app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state) {
-console.log('Entra en el controller EditUserCtrl');
-  $scope.EditProfile = function () {
-      console.log('Entra en el EditProfile del controller');
-    var confirmPopup = $ionicPopup.confirm({
-      title: 'Confirmar cambios',
 
-      template: 'Esta seguro que quiere guardar los cambios realizados?'
+app.controller('MainCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+
+})
+
+app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state) {
+  console.log('Entra en el controller EditUserCtrl');
+  $scope.EditProfile = function () {
+    console.log('Entra en el EditProfile del controller');
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Guardar cambios?'
     });
 
     confirmPopup.then(function(res) {
       if (res) {
         $state.go('app.main');
+        //TODO: guardar los cambios
       } else {
         $state.go('app.main');
       }
@@ -77,4 +80,4 @@ console.log('Entra en el controller EditUserCtrl');
     });
 
   };
-})*/
+})
