@@ -39,6 +39,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
         })
 
+      .state('app.adventures', {
+        url: '/adventures',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/myadventures.html',
+            controller: 'MyAdventureCtrl'
+          }
+        }
+      })
+      .state('app.adventure', {
+        url: '/adventure',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/adventure.html',
+            controller: 'AdventureCtrl'
+          }
+        }
+      })
       .state('app.user', {
         url: '/user',
         views: {

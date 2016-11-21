@@ -58,10 +58,60 @@ app.controller('AppCtrl', function ($scope, $state, $ionicModal, $ionicPopover, 
 })
 
 app.controller('MainCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+  $scope.items = [
+    { id: 1,
+      image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
+      name: 'Aventura Deluxe',
+      location: 'Barcelona'
+    },
+    {
+      id: 2,
+      image: "https://cdn.civitatis.com/guias/madrid/fotos/madrid.jpg",
+      name: 'Aventura Extrema',
+      location: 'Madrid'
+    },
+    {
+      id: 3,
+      image: "http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/castilla-leon/r_panoramica_salamanca_s29270602_01.jpg",
+      name: 'SuperAdventure',
+      location: 'Salamanca'
+    }
+  ];
+
+
+
+})
+
+
+app.controller('MyAdventureCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+  $scope.items = [
+    {
+      id: 1,
+      image: "https://cdn.civitatis.com/guias/madrid/fotos/madrid.jpg",
+      name: 'Aventura Extrema',
+      location: 'Madrid'
+    },
+    {
+      id: 2,
+      image: "http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/castilla-leon/r_panoramica_salamanca_s29270602_01.jpg",
+      name: 'SuperAdventure',
+      location: 'Salamanca'
+    }
+  ];
 
 })
 
 app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state) {
+ $scope.user = {
+   username: 'martacou',
+   image: 'https://pbs.twimg.com/profile_images/591181913794162688/BXQiY1VY_400x400.jpg',
+   name: 'Marta Couto',
+   email: 'marta.couto.g@gmail.com',
+   birthdate: '30/07/1993',
+   gender:'Mujer',
+   registerdate: '2009'
+ }
+
   console.log('Entra en el controller EditUserCtrl');
   $scope.EditProfile = function () {
     console.log('Entra en el EditProfile del controller');
@@ -71,10 +121,14 @@ app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $tim
 
     confirmPopup.then(function(res) {
       if (res) {
-        $state.go('app.main');
-        //TODO: guardar los cambios
+        var savePopup = $ionicPopup.alert({
+          title: 'Cambios guardados'
+        })
       } else {
-        $state.go('app.main');
+        var errorPopup = $ionicPopup.alert({
+          title: 'No se han podido guardar los cambios realizados'
+        })
+
       }
 
     });

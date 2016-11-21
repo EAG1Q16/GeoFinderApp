@@ -1,0 +1,27 @@
+<script id="templates/all.html" type="text/ng-template">
+  <ion-view view-title="Aventuras">
+    <ion-header no-shadow>
+      <div class="bar bar-subheader item-input-inset bar-light">
+        <label class="item-input-wrapper">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" ng-model="busqueda" placeholder="Buscar">
+        </label>
+      </div>
+    </ion-header>
+
+    <ion-content>
+      <br>
+      <br>
+      <br>
+      <div class="list">
+
+        <a ng-repeat="item in items" href="#/{{item.id}}" class="item item-thumbnail-left">
+          <img ng-src="{{ item.image }}">
+          <h2>{{ item.name }}</h2>
+          <h4>{{ item.location }}</h4>
+        </a>
+
+      </div>
+    </ion-content>
+  </ion-view>
+</script>

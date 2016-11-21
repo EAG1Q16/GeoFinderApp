@@ -1,25 +1,33 @@
-<ion-view  no-shadow view-title="Explorar" >
+<ion-view  no-shadow view-title="Mis Aventuras" >
+  <ion-nav-view></ion-nav-view>
+
+
   <ion-header no-shadow>
     <div class="bar bar-subheader item-input-inset bar-light">
       <label class="item-input-wrapper">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" ng-model="busqueda" placeholder="Buscar">
+        <input type="text" ng-model="search" placeholder="Buscar">
       </label>
     </div>
   </ion-header>
-  <ion-content class="padding">
+  <ion-content>
+
     <br>
     <br>
     <br>
     <div class="list">
 
-      <a ng-repeat="item in items"  ng-click="PerfilAventura(item.id)" class="item item-thumbnail-left">
+      <a ng-repeat="item in items" class="item item-thumbnail-left" >
         <img ng-src="{{ item.image }}">
         <h2>{{ item.name }}</h2>
         <h4>{{ item.location }}</h4>
       </a>
 
     </div>
+
   </ion-content>
 </ion-view>
-<!-- href="#/{{item.id}}"-->
+
+
+
+
