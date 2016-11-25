@@ -1,0 +1,72 @@
+<ion-view view-title="Perfil">
+  <ion-header no-shadow>
+    <div class="bar bar-subheader item-input-inset bar-light">
+      <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" ng-model="busqueda" placeholder="Buscar">
+      </label>
+    </div>
+  </ion-header>
+
+  <ion-content >
+    <span class="list">
+    <br>
+        <div align="center">
+              <img class="image-avatar" src={{user.image}} >
+        </div>
+ <h4 class="padding gotham-medium  text-center" style="color: limegreen">{{user.username}}</h4>
+    </span>
+
+    <label class="item item-input">
+      <span class="input-label" style="color: black">Nombre</span>
+      <input type="text" style="color: black" ng-model="user.name">
+    </label>
+
+    <br>
+    <label class="item item-input">
+      <span class="input-label" style="color: black"> Email</span>
+      <input type="email" style="color: black" ng-model="user.email">
+    </label>
+
+    <br>
+    <label class="item item-input">
+      <span class="input-label" style="color: black">Cumpleaños</span>
+      <input type="date" style="color: black" ng-model="user.birthdate">
+    </label>
+
+    <br>
+    <label class="item item-input">
+      <span class="input-label">Sexo</span>
+      <select ng-model="user.gender">
+        <option>Hombre</option>
+        <option>Mujer</option>
+      </select>
+    </label>
+
+    <label class="item item-input">
+      <span class="input-label" style="color: black">Contraseña</span>
+      <input type="password" style="color: black" placeholder="*****" ng-model="user.password">
+    </label>
+
+    <label class="item item-input">
+      <span class="input-label" style="color: black">Nueva Contraseña</span>
+      <input type="password" style="color: black" ng-model="user.newpassword">
+    </label>
+
+    <label class="item item-input">
+      <span class="input-label" style="color: black">Repetir contraseña</span>
+      <input type="password" style="color: black" ng-model="user.repnewpassword">
+    </label>
+    </div>
+    <div align="center">
+      <h7 class="text-center">Usuario desde {{user.registerdate}}</h7>
+    </div>
+    <br>
+    <div align="center">
+      <button style="width: 80%" class="button  sexy-blue" ng-click="EditProfile()">Guardar</button>
+    </div>
+
+
+  </ion-content>
+</ion-view>
+

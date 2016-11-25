@@ -18,70 +18,75 @@ app.run(function ($ionicPlatform) {
         }
     });
 })
-
-app.config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
+app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position("bottom");
+  $stateProvider
 
     .state('app', {
-        url: '/app',
-        abstract: true,
-          templateUrl: 'templates/menu.html',
-          controller: 'AppCtrl'
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
+    .state('app.main', {
+      url: '/main',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/mainpage.html',
+          controller: 'MainCtrl'
+        }
+      }
+    })
+   /* .state('app.all',{
+      url: '/all',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/adventures/all.html',
+          controller: 'AllCtrl'
+        }
+      }
+    })*/
+    .state('app.adventures', {
+      url: '/adventures',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/myadventures.html',
+          controller: 'MyAdventureCtrl'
+        }
+      }
+    })
+    .state('app.adventure', {
+      url: '/adventure',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/adventure.html',
+          controller: 'AdventureCtrl'
+        }
+      }
+    })
+    .state('app.user', {
+      url: '/user',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/user.html',
+          controller: 'EditUserCtrl'
+        }
+      }
+    })
+    .state('login', {
+      url: '/login',
+      cache: false,
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
     })
 
-        .state('app.main', {
-            url: '/main',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/mainpage.html',
-                    controller: 'MainCtrl'
-                }
-            }
-        })
+    .state('createcount', {
+      url: '/createcount',
+      cache: false,
+      templateUrl: 'templates/register.html',
+      controller: 'RegisterCtrl'
+    })
 
-      .state('app.adventures', {
-        url: '/adventures',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/myadventures.html',
-            controller: 'MyAdventureCtrl'
-          }
-        }
-      })
-      .state('app.adventure', {
-        url: '/adventure',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/adventure.html',
-            controller: 'AdventureCtrl'
-          }
-        }
-      })
-      .state('app.user', {
-        url: '/user',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/user.html',
-            controller: 'EditUserCtrl'
-          }
-        }
-      })
-      .state('login', {
-        url: '/login',
-        cache: false,
-          templateUrl: 'templates/login.html',
-          controller: 'LoginCtrl'
-      })
-
-      .state('createcount', {
-        url: '/createcount',
-        cache: false,
-          templateUrl: 'templates/register.html',
-          controller: 'RegisterCtrl'
-      })
-
-    ;
-
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/login');
 });

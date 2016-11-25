@@ -1,7 +1,6 @@
 ﻿var base_url_local="http://localhost:3000";
 
 app.controller('RegisterCtrl', function ($scope, $http, $ionicPopup, $stateParams, $state, $timeout, ionicMaterialInk, ionicMaterialMotion) {
-q
   $scope.NewUser = {};
 
   $scope.Register = function(){

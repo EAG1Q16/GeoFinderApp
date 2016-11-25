@@ -37,28 +37,10 @@ app.controller('AppCtrl', function ($scope, $state, $ionicModal, $ionicPopover, 
         $scope.popover.remove();
     });
 
-   /* $scope.EditProfile = function () {
-            console.log('Entra en el EditProfile');
-            var confirmPopup = $ionicPopup.confirm({
-                title: 'Guardar cambios?'
-            });
-
-            confirmPopup.then(function(res) {
-                if (res) {
-                    $state.go('app.main');
-                    //TODO: guardar los cambios
-                } else {
-                    $state.go('app.main');
-                }
-
-            });
-
-        };*/
-
 })
 
 app.controller('MainCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
-  $scope.items = [
+  /*$scope.items = [
     { id: 1,
       image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
       name: 'Aventura Deluxe',
@@ -76,12 +58,50 @@ app.controller('MainCtrl', function ($scope, $ionicPopup, $stateParams, $timeout
       name: 'SuperAdventure',
       location: 'Salamanca'
     }
-  ];
+  ];*/
 
+  $scope.showNear = function(){
+    $scope.items = [
+      { id: 1,
+        image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
+        name: 'Aventura Deluxe',
+        location: 'Barcelona'
+      }
+    ];
+  }
 
+  $scope.showAll = function(){
+    $scope.items = [
+      { id: 1,
+        image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
+        name: 'Aventura Deluxe',
+        location: 'Barcelona'
+      },
+      {
+        id: 2,
+        image: "https://cdn.civitatis.com/guias/madrid/fotos/madrid.jpg",
+        name: 'Aventura Extrema',
+        location: 'Madrid'
+      },
+      {
+        id: 3,
+        image: "http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/castilla-leon/r_panoramica_salamanca_s29270602_01.jpg",
+        name: 'SuperAdventure',
+        location: 'Salamanca'
+      }
+    ];
+  }
 
 })
-
+app.controller('AllCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+  $scope.items = [
+    { id: 1,
+      image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
+      name: 'Aventura Deluxe',
+      location: 'Barcelona'
+    }
+  ];
+})
 
 app.controller('MyAdventureCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
   $scope.items = [
@@ -98,7 +118,12 @@ app.controller('MyAdventureCtrl', function ($scope, $ionicPopup, $stateParams, $
       location: 'Salamanca'
     }
   ];
+  $scope.showCreadas = function(){
 
+  }
+  $scope.showJugadas = function(){
+
+  }
 })
 
 app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state) {
