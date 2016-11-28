@@ -1,23 +1,14 @@
 <ion-view  no-shadow view-title="Mis Aventuras" >
 <ion-nav-view><button class="button icon ion-gear-a"></button></ion-nav-view>
   <ion-content class="padding">
-    <div class="bar bar-header item-input-inset">
-      <label class="item-input-wrapper">
-        <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" placeholder="Buscar">
-        <button class="button button-clear">
-          <i class="ion-ios-close-outline" style="color: dimgrey"></i>
-        </button>
-      </label>
-    </div>
     <br>
 
     <div class="list">
 
-      <a ng-repeat="item in items" class="item item-thumbnail-left" >
-        <img ng-src="{{ item.image }}">
-        <h2>{{ item.name }}</h2>
-        <h4>{{ item.location }}</h4>
+      <a ng-repeat="adventure in adventures" class="item item-thumbnail-left" href="#/adventures/{{item.id}}">
+        <img ng-src="{{ adventure.image }}">
+        <h2>{{ adventure.name }}</h2>
+        <h4>{{ adventure.description }}</h4>
       </a>
 
     </div>

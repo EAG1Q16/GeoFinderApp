@@ -4,18 +4,18 @@
     <div class="bar bar-header item-input-inset">
       <label class="item-input-wrapper">
         <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" placeholder="Buscar una aventura">
-      <button class="button button-clear">
-        <i class="ion-ios-close-outline" style="color: dimgrey"></i>
+        <input type="search" ng-model="busqueda" placeholder="Buscar una aventura">
+      <button class="button button-clear" >
+        <i class="ion-ios-close-outline" style="color: dimgrey" ng-click="clear(busqueda)"></i>
       </button>
       </label>
     </div>
 
     <div class="list">
-        <a ng-repeat="item in items" href="#/{{item.id}}" class="item item-thumbnail-left">
+        <a ng-repeat="item in items | filter:busqueda " ng-click="AdvProfile(item._id)" class="item item-thumbnail-left">
           <img ng-src="{{ item.image }}">
           <h2>{{ item.name }}</h2>
-          <h4>{{ item.location }}</h4>
+          <h4>{{ item.description }}</h4>
         </a>
     </div>
   </ion-content>

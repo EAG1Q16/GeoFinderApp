@@ -1,5 +1,6 @@
-﻿
-app.controller('AppCtrl', function ($scope, $state, $ionicModal, $ionicPopover, $timeout, $ionicPopup) {
+﻿var base_url = "http://localhost:3000"
+
+app.controller('AppCtrl', function ($scope, $state, $http, $ionicModal, $rootScope, $ionicPopover, $timeout, $ionicPopup) {
     // Form data for the login modal
     $scope.loginData = {};
     console.log('AppCtrl');
@@ -10,13 +11,6 @@ app.controller('AppCtrl', function ($scope, $state, $ionicModal, $ionicPopover, 
         });
     }
 
-    // var fab = document.getElementById('fab');
-    // fab.addEventListener('click', function () {
-    //     //location.href = 'https://twitter.com/satish_vr2011';
-    //     window.open('https://twitter.com/satish_vr2011', '_blank');
-    // });
-
-    // .fromTemplate() method
     var template = '<ion-popover-view>' +
                     '   <ion-header-bar>' +
                     '       <h1 class="title">My Popover Title</h1>' +
@@ -39,85 +33,58 @@ app.controller('AppCtrl', function ($scope, $state, $ionicModal, $ionicPopover, 
 
 })
 
-app.controller('MainCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
-  /*$scope.items = [
-    { id: 1,
-      image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
-      name: 'Aventura Deluxe',
-      location: 'Barcelona'
-    },
-    {
-      id: 2,
-      image: "https://cdn.civitatis.com/guias/madrid/fotos/madrid.jpg",
-      name: 'Aventura Extrema',
-      location: 'Madrid'
-    },
-    {
-      id: 3,
-      image: "http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/castilla-leon/r_panoramica_salamanca_s29270602_01.jpg",
-      name: 'SuperAdventure',
-      location: 'Salamanca'
-    }
-  ];*/
+app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+  console.log("rootscope: "+$rootScope.UserID);
+  $http.get(base_url+'/adventures')
+    .success(function (response) {
+      console.log("aventuriiiis");
+      $scope.items = response;
+      console.log(response);
+    })
+    .error(function(data) {
+      console.log('Error: '+data);
+    })
+
+  $scope.clean = function(busqueda){
+    $scope.busqueda = {};
+  }
 
   $scope.showNear = function(){
-    $scope.items = [
-      { id: 1,
-        image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
-        name: 'Aventura Deluxe',
-        location: 'Barcelona'
-      }
-    ];
+
   }
+  $scope.AdvProfile = function(id){
+    console.log("click")
+    $state.go("adventures"+'/'+id);
+  }
+
 
   $scope.showAll = function(){
-    $scope.items = [
-      { id: 1,
-        image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
-        name: 'Aventura Deluxe',
-        location: 'Barcelona'
-      },
-      {
-        id: 2,
-        image: "https://cdn.civitatis.com/guias/madrid/fotos/madrid.jpg",
-        name: 'Aventura Extrema',
-        location: 'Madrid'
-      },
-      {
-        id: 3,
-        image: "http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/castilla-leon/r_panoramica_salamanca_s29270602_01.jpg",
-        name: 'SuperAdventure',
-        location: 'Salamanca'
-      }
-    ];
+    $http.get(base_url+'/adventures')
+      .success(function (response) {
+        console.log("todas las aventuras");
+        $scope.items = response;
+        console.log(response);
+      })
+      .error(function(data) {
+        console.log('Error: '+data);
+      })
+
   }
 
 })
-app.controller('AllCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
-  $scope.items = [
-    { id: 1,
-      image: "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
-      name: 'Aventura Deluxe',
-      location: 'Barcelona'
-    }
-  ];
-})
 
-app.controller('MyAdventureCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
-  $scope.items = [
-    {
-      id: 1,
-      image: "https://cdn.civitatis.com/guias/madrid/fotos/madrid.jpg",
-      name: 'Aventura Extrema',
-      location: 'Madrid'
-    },
-    {
-      id: 2,
-      image: "http://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/castilla-leon/r_panoramica_salamanca_s29270602_01.jpg",
-      name: 'SuperAdventure',
-      location: 'Salamanca'
-    }
-  ];
+app.controller('MyAdventureCtrl', function ($scope, $rootScope, $http, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+  console.log("rootscope: "+$rootScope.UserID);
+  $http.get(base_url+'/user/my/'+$rootScope.UserID)
+    .success(function (response) {
+        $scope.adventures = response.adventures;
+      console.log(response);
+      console.log(response.adventures);
+    })
+    .error(function (response) {
+      console.log("Error: "+response);
+    })
+
   $scope.showCreadas = function(){
 
   }
@@ -129,8 +96,8 @@ app.controller('MyAdventureCtrl', function ($scope, $ionicPopup, $stateParams, $
 app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state) {
  $scope.user = {
    username: 'martacou',
-   image: 'https://pbs.twimg.com/profile_images/591181913794162688/BXQiY1VY_400x400.jpg',
    name: 'Marta Couto',
+   image: '/img/geofinderico.png',
    email: 'marta.couto.g@gmail.com',
    birthdate: '30/07/1993',
    gender:'Mujer',
@@ -159,4 +126,22 @@ app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $tim
     });
 
   };
+})
+
+app.controller('AdventureCtrl', function ($scope, $ionicPopup, $http, $rootScope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+  console.log("rootscope: "+$rootScope.UserID);
+  var adventureID = window.location.href.split("/").pop();
+  console.log("AdventureID: " + adventureID);
+
+  http.get(base_url+'/adventures/id/' + adventureID)
+    .success(function(data){
+      $scope.AdventureProfile = data;
+      $scope.comments = data.comments;
+      console.log($scope.AdventureProfile);
+      console.lof($scope.comments);
+    })
+    .error(function (data) {
+      console.log("Error: " + data);
+    })
+
 })

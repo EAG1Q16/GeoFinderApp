@@ -37,17 +37,9 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
       }
     })
-   /* .state('app.all',{
-      url: '/all',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/adventures/all.html',
-          controller: 'AllCtrl'
-        }
-      }
-    })*/
-    .state('app.adventures', {
-      url: '/adventures',
+
+    .state('app.myadventures', {
+      url: '/myadventures',
       views: {
         'menuContent': {
           templateUrl: 'templates/myadventures.html',
@@ -55,14 +47,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
       }
     })
-    .state('app.adventure', {
-      url: '/adventure',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/adventure.html',
-          controller: 'AdventureCtrl'
-        }
-      }
+    .state('adventure', {
+      url: '/adventures/:adventure_id',
+      templateUrl: 'templates/adventure.html',
+      controller: 'AdventureCtrl'
     })
     .state('app.user', {
       url: '/user',

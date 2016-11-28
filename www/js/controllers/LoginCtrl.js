@@ -12,7 +12,9 @@ app.controller('LoginCtrl',function ($scope, $http, $ionicPopup, $stateParams, $
       $http.post(base_url_local + '/user/login', $scope.user)
         .success(function (response) {
           console.log(response);
+          $rootScope.UserID = response;
           $state.go('app.main')
+
         })
         .error(function (err) {
           $ionicPopup.alert({
