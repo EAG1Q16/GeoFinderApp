@@ -1,5 +1,4 @@
-﻿var base_url = "http://localhost:3000"
-
+﻿var base_url = "http://localhost:3000";
 app.controller('AppCtrl', function ($scope, $state, $http, $ionicModal, $rootScope, $ionicPopover, $timeout, $ionicPopup) {
     // Form data for the login modal
     $scope.loginData = {};
@@ -31,6 +30,13 @@ app.controller('AppCtrl', function ($scope, $state, $http, $ionicModal, $rootSco
         $scope.popover.remove();
     });
 
+  $http.get(base_url+'/user/my/'+$rootScope.UserID)
+    .success(function (response) {
+      $scope.user = response;
+    })
+    .error(function (response) {
+      console.log("Error: "+response);
+    })
 })
 
 /*app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){

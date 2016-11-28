@@ -1,4 +1,4 @@
-﻿var base_url_local="http://localhost:3000";
+﻿var base_url = "http://localhost:3000";
 
 app.controller('RegisterCtrl', function ($scope, $http, $ionicPopup, $stateParams, $state, $timeout, ionicMaterialInk, ionicMaterialMotion) {
   $scope.NewUser = {};
@@ -6,7 +6,7 @@ app.controller('RegisterCtrl', function ($scope, $http, $ionicPopup, $stateParam
   $scope.Register = function(){
 
     if($scope.NewUser.password == $scope.NewUser.repeat){
-      $http.post('http://localhost:3000/user/signup', $scope.NewUser)
+      $http.post(base_url+'/user/signup', $scope.NewUser)
         .success(function(response){
           $scope.NewUser = {}; //clear the form
           console.log('Usuario registrado');

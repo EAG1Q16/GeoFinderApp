@@ -1,7 +1,7 @@
 /**
  * Created by Marta_ on 28/11/2016.
  */
-
+var base_url = "http://localhost:3000";
 app.controller('MyAdventureCtrl', function ($scope, $rootScope, $http, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
   console.log("rootscope: "+$rootScope.UserID);
   $http.get(base_url+'/user/my/'+$rootScope.UserID)

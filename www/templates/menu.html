@@ -1,5 +1,5 @@
 ﻿<ion-side-menus enable-menu-with-back-views="false" no-shadow>
-    <ion-side-menu-content no-shadow>
+    <ion-side-menu-content no-shadow class="sexy-blue">
         <ion-nav-bar class="sexy-blue" no-shadow>
 
           <ion-nav-buttons side="left">
@@ -14,14 +14,13 @@
 
     <ion-side-menu side="left">
 
-        <ion-header-bar no-shadow class="expanded" id="user-header">
-            <div  class="profile" align="center" >
-              <img class="image-avatar" src="'../img/geofinderico.png'" >
-                <h5 style="color: limegreen">martacou</h5>
+        <ion-header-bar no-shadow class="expanded user-header">
+            <div  class="profile" align="center" class="user-header" >
+              <img class="image-avatar" src={{user.photo}} >
+                <h5 style="color: white">{{user.username}}</h5>
             </div>
         </ion-header-bar>
         <ion-content class="sexy-blue has-expanded-header">
-
             <ion-list>
               <br>
               <br>

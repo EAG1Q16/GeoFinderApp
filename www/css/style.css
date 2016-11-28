@@ -271,9 +271,9 @@ input:-ms-input-placeholder {
 }
 .letra {
   font-size: 22px;
-  font-family: roboto;
+  font-family: "Roboto";
 }
-#user-header{
+.user-header{
   background-color: greenyellow;
 }
 .item.item-inputgrey{
@@ -322,3 +322,4 @@ h5{
   border-radius: 50%;
   background-size: 100% auto;
 }
+
