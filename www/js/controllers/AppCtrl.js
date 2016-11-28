@@ -33,7 +33,7 @@ app.controller('AppCtrl', function ($scope, $state, $http, $ionicModal, $rootSco
 
 })
 
-app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
+/*app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
   console.log("rootscope: "+$rootScope.UserID);
   $http.get(base_url+'/adventures')
     .success(function (response) {
@@ -71,15 +71,15 @@ app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $st
 
   }
 
-})
-
+})*/
+/*
 app.controller('MyAdventureCtrl', function ($scope, $rootScope, $http, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
   console.log("rootscope: "+$rootScope.UserID);
   $http.get(base_url+'/user/my/'+$rootScope.UserID)
     .success(function (response) {
-        $scope.adventures = response.adventures;
+        $scope.adventures = response.adventures.created;
       console.log(response);
-      console.log(response.adventures);
+      console.log(response.adventures.created);
     })
     .error(function (response) {
       console.log("Error: "+response);
@@ -91,8 +91,8 @@ app.controller('MyAdventureCtrl', function ($scope, $rootScope, $http, $ionicPop
   $scope.showJugadas = function(){
 
   }
-})
-
+})*/
+/*
 app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state) {
  $scope.user = {
    username: 'martacou',
@@ -126,8 +126,8 @@ app.controller('EditUserCtrl', function ($scope, $ionicPopup, $stateParams, $tim
     });
 
   };
-})
-
+})*/
+/*
 app.controller('AdventureCtrl', function ($scope, $ionicPopup, $http, $rootScope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
   console.log("rootscope: "+$rootScope.UserID);
   var adventureID = window.location.href.split("/").pop();
@@ -144,4 +144,4 @@ app.controller('AdventureCtrl', function ($scope, $ionicPopup, $http, $rootScope
       console.log("Error: " + data);
     })
 
-})
+})*/
