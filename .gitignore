@@ -5,6 +5,6 @@ platforms/
 node_modules/
 plugins/
 www/lib/
-.idea/
+.idea
 
 
