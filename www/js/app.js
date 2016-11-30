@@ -61,6 +61,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
       }
     })
+    .state('app.userprofile', {
+      url: '/userprofile',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/userprofile.html',
+          controller: 'UserProfileCtrl'
+        }
+      }
+    })
     .state('login', {
       url: '/login',
       cache: false,
