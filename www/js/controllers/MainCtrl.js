@@ -1,6 +1,8 @@
 /**
  * Created by Marta_ on 28/11/2016.
  */
+
+var base_url = "http://localhost:3000";
 app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $state){
   console.log("mainctrl");
   console.log("rootscope: "+$rootScope.UserID);
@@ -12,19 +14,20 @@ app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $st
     })
     .error(function(data) {
       console.log('Error: '+data);
-    })
+    });
 
-  $scope.clean = function(busqueda){
-    $scope.busqueda = {};
-  }
+  $scope.clear = function(){
+    $scope.busqueda = null;
+  };
 
   $scope.showNear = function(){
 
   }
+
   $scope.AdvProfile = function(id){
     console.log("click")
-    $state.go("adventures"+'/'+id);
-  }
+    $state.go("app.adventures"+'/'+ id);
+  };
 
 
   $scope.showAll = function(){
@@ -40,4 +43,4 @@ app.controller('MainCtrl', function ($scope, $ionicPopup, $http, $rootScope, $st
 
   }
 
-})
+});

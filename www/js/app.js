@@ -47,11 +47,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
       }
     })
-    .state('adventure', {
-      url: '/adventures/:adventure_id',
-      templateUrl: 'templates/adventure.html',
-      controller: 'AdventureCtrl'
+    .state('app.adventures', {
+      url: '/adventures/:id',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/adventure.html',
+          controller: 'AdventureCtrl'
+        }
+      }
     })
+
     .state('app.user', {
       url: '/user',
       views: {
